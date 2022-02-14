@@ -1,5 +1,5 @@
 ;; Define the init file
 (org-babel-load-file
  (expand-file-name
-  "config.org"
+  "README.org"
   user-emacs-directory))
