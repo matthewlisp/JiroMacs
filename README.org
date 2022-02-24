@@ -182,6 +182,14 @@ Toc-org helps you to have an up-to-date table of contents in org files without e
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
 #+END_SRC
+
+** Winum
+Windows numbers for changing them easily
+#+BEGIN_SRC emacs-lisp
+(use-package winum)
+(winum-mode)
+#+END_SRC
+
 * Org mode tweaks
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -267,7 +275,16 @@ the current layouts buffers."
 ** Buffer switch keybinds
 #+begin_src emacs-lisp
 (nvmap :keymaps 'override :prefix "SPC"
-	   "TAB" '(spacemacs/alternate-buffer :which-key "Last buffer"))
+	   "TAB" '(spacemacs/alternate-buffer :which-key "Last buffer")
+       "1"   '(winum-select-window-1      :which-key "Select window 1..9")
+       "2"   '(winum-select-window-2      :which-key "Select window 1..9")
+       "3"   '(winum-select-window-3      :which-key "Select window 1..9")
+       "4"   '(winum-select-window-4      :which-key "Select window 1..9")
+       "5"   '(winum-select-window-5      :which-key "Select window 1..9")
+       "6"   '(winum-select-window-6      :which-key "Select window 1..9")
+       "7"   '(winum-select-window-7      :which-key "Select window 1..9")
+       "8"   '(winum-select-window-8      :which-key "Select window 1..9")
+       "9"   '(winum-select-window-9      :which-key "Select window 1..9"))
 #+end_src
 
 
