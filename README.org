@@ -265,7 +265,10 @@ the current layouts buffers."
 	   ;; "SPC"   '(counsel-M-x :which-key "M-x")
 	   "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload emacs config")
 	   "t t"   '(toggle-truncate-lines                                      :which-key "Toggle truncate lines")
-	   "b d"   '(kill-buffer                                                :which-key "Kill current buffer"))
+	   "b d"   '(kill-buffer                                                :which-key "Kill current buffer")
+       "w -"   '(split-window-below                                         :which-key "Split window below")
+       "w /"   '(split-window-right                                         :which-key "Split window right")
+       "w d"   '(delete-window                                              :which-key "Delete window"))
 
 
   (global-set-key (kbd "C-=") 'text-scale-increase)
