@@ -81,8 +81,8 @@ Toc-org helps you to have an up-to-date table of contents in org files without e
   :ensure t
   :defer t
   :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  ;; (with-eval-after-load 'winum
+  ;; (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
   (progn
     (setq treemacs-collapse-dirs                   (if treemacs-python-executable 3 0)
@@ -153,13 +153,14 @@ Toc-org helps you to have an up-to-date table of contents in org files without e
     (treemacs-hide-gitignored-files-mode nil))
   :bind
   (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t d"   . treemacs-select-directory)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+       ;; ("M-0"       . treemacs-select-window)
+       ;; ("C-x t 1"   . treemacs-delete-other-windows)
+       ;; ("C-x t t"   . treemacs)
+       ;; ("C-x t d"   . treemacs-select-directory)
+       ;; ("C-x t B"   . treemacs-bookmark)
+       ;; ("C-x t C-t" . treemacs-find-file)
+       ;; ("C-x t M-t" . treemacs-find-tag)
+))
 
 (use-package treemacs-evil
   :after (treemacs evil)
@@ -268,8 +269,8 @@ the current layouts buffers."
 	   "b d"   '(kill-buffer                                                :which-key "Kill current buffer")
        "w -"   '(split-window-below                                         :which-key "Split window below")
        "w /"   '(split-window-right                                         :which-key "Split window right")
-       "w d"   '(delete-window                                              :which-key "Delete window"))
-
+       "w d"   '(delete-window                                              :which-key "Delete window")
+       "f t"   '(treemacs                                                   :which-key "Toggle treemacs"))
 
   (global-set-key (kbd "C-=") 'text-scale-increase)
   (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -277,8 +278,12 @@ the current layouts buffers."
 
 ** Buffer switch keybinds
 #+begin_src emacs-lisp
-(nvmap :keymaps 'override :prefix "SPC"
+(general-define-key
+ :states '(normal visual insert emacs treemacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
 	   "TAB" '(spacemacs/alternate-buffer :which-key "Last buffer")
+       "0"   '(treemacs-select-window     :which-key "Select treemacs buffer")
        "1"   '(winum-select-window-1      :which-key "Select window 1..9")
        "2"   '(winum-select-window-2      :which-key "Select window 1..9")
        "3"   '(winum-select-window-3      :which-key "Select window 1..9")
